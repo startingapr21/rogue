@@ -234,7 +234,7 @@ func BaseImageName(cudaVersion string, pythonVersion string, torchVersion string
 		tag = "latest"
 	}
 
-	return BaseImageRegistry + "/cog-base:" + tag
+	return "rocm/pytorch:rocm6.1.3_ubuntu22.04_py3.10_pytorch_release-2.1.2"
 }
 
 func BaseImageConfigurationExists(cudaVersion, pythonVersion, torchVersion string) bool {
