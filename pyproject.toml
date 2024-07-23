@@ -1,0 +1,115 @@
+[build-system]
+requires = ["setuptools", "setuptools_scm[toml]"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cog"
+description = "Containers for machine learning"
+readme = "README.md"
+authors = [{ name = "Replicate", email = "team@replicate.com" }]
+license.file = "LICENSE"
+urls."Source" = "https://github.com/replicate/cog"
+
+requires-python = ">=3.7"
+dependencies = [
+  # intentionally loose. perhaps these should be vendored to not collide with user code?
+  "attrs>=20.1,<24",
+  "fastapi>=0.75.2,<0.99.0",
+  "pydantic>=1.9,<2",
+  "PyYAML",
+  "requests>=2,<3",
+  "structlog>=20,<25",
+  'typing-compat; python_version < "3.8"',
+  "typing_extensions>=4.4.0",
+  "uvicorn[standard]>=0.12,<1",
+]
+
+optional-dependencies = { "dev" = [
+  "black",
+  "build",
+  "httpx",
+  'hypothesis<6.80.0; python_version < "3.8"',
+  'hypothesis; python_version >= "3.8"',
+  'numpy<1.22.0; python_version < "3.8"',
+  'numpy; python_version >= "3.8"',
+  "pillow",
+  "pyright==1.1.347",
+  "pytest",
+  "pytest-httpserver",
+  "pytest-rerunfailures",
+  "pytest-xdist",
+  "pytest-cov",
+  "responses",
+  "ruff",
+] }
+
+dynamic = ["version"]
+
+[tool.setuptools_scm]
+write_to = "python/cog/_version.py"
+
+[tool.pyright]
+# TODO: remove this and bring the codebase inline with the current default
+strictParameterNoneValue = false
+# legacy behavior, fixed in PEP688
+disableBytesTypePromotions = true
+include = ["python"]
+exclude = ["python/tests"]
+reportMissingParameterType = "error"
+reportUnknownLambdaType = "error"
+reportUnnecessaryIsInstance = "warning"
+reportUnnecessaryComparison = "warning"
+reportUnneesssaryContains = "warning"
+reportMissingTypeArgument = "error"
+reportUnusedExpression = "warning"
+
+[tool.setuptools]
+package-dir = { "" = "python" }
+
+[tool.ruff]
+lint.select = [
+  "E",   # pycodestyle error
+  "F",   # Pyflakes
+  "I",   # isort
+  "W",   # pycodestyle warning
+  "UP",  # pyupgrade
+  "S",   # flake8-bandit
+  "B",   # flake8-bugbear
+  "ANN", # flake8-annotations
+]
+lint.ignore = [
+  "E501",   # Line too long
+  "S101",   # Use of `assert` detected"
+  "S113",   # Probable use of requests call without timeout
+  "B008",   # Do not perform function call in argument defaults
+  "ANN001", # Missing type annotation for function argument
+  "ANN002", # Missing type annotation for `*args`
+  "ANN003", # Missing type annotation for `**kwargs`
+  "ANN101", # Missing type annotation for self in method
+  "ANN102", # Missing type annotation for cls in classmethod
+  "ANN401", # Dynamically typed expressions are disallowed
+  # recently ruff added checks for pyupgrade, which is bad for back-compat
+  "UP037", # Remove quotes from type annotation
+]
+extend-exclude = [
+  "python/tests/server/fixtures/*",
+  "test-integration/test_integration/fixtures/*",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"python/cog/server/http.py" = [
+  "S104", # Possible binding to all interfaces
+]
+"python/tests/*" = [
+  "S101", # Use of assert
+  "S104", # Possible binding to all interfaces
+  "S301", # pickle can be unsafe when used to deserialize untrusted data
+  "ANN",
+]
+"test-integration/*" = [
+  "S101", # Use of assert
+  "S311", # Standard pseudo-random generators are not suitable for cryptographic purposes
+  "S603", # subprocess call - check for execution of untrusted input
+  "S607", # Starting a process with a partial executable path"
+  "ANN",
+]
