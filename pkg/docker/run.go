@@ -15,8 +15,8 @@ import (
 
 	"github.com/mattn/go-isatty"
 
-	"github.com/replicate/cog/pkg/util"
-	"github.com/replicate/cog/pkg/util/console"
+	"github.com/startingapr21/rogue/pkg/util"
+	"github.com/startingapr21/rogue/pkg/util/console"
 )
 
 type Port struct {
@@ -57,7 +57,7 @@ func generateDockerArgs(options internalRunOptions) []string {
 		"--rm",
 		"--shm-size", "6G",
 		// https://github.com/pytorch/pytorch/issues/2244
-		// https://github.com/replicate/cog/issues/1293
+		// https://github.com/startingapr21/rogue/issues/1293
 		// TODO: relative to pwd and cog.yaml
 	}
 

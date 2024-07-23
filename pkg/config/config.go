@@ -13,9 +13,9 @@ import (
 
 	"gopkg.in/yaml.v2"
 
-	"github.com/replicate/cog/pkg/util/console"
-	"github.com/replicate/cog/pkg/util/slices"
-	"github.com/replicate/cog/pkg/util/version"
+	"github.com/startingapr21/rogue/pkg/util/console"
+	"github.com/startingapr21/rogue/pkg/util/slices"
+	"github.com/startingapr21/rogue/pkg/util/version"
 )
 
 var (
@@ -458,7 +458,7 @@ Compatible CuDNN versions are: %s`, c.Build.CUDA, c.Build.CuDNN, strings.Join(co
 		switch {
 		case c.Build.CUDA == "":
 			if tfCuDNN == "" {
-				return fmt.Errorf("Cog doesn't know what CUDA version is compatible with tensorflow==%s. You might need to upgrade Cog: https://github.com/replicate/cog#upgrade\n\nIf that doesn't work, you need to set the 'cuda' option in cog.yaml to set what version to use. You might be able to find this out from https://www.tensorflow.org/", tfVersion)
+				return fmt.Errorf("Cog doesn't know what CUDA version is compatible with tensorflow==%s. You might need to upgrade Cog: https://github.com/startingapr21/rogue#upgrade\n\nIf that doesn't work, you need to set the 'cuda' option in cog.yaml to set what version to use. You might be able to find this out from https://www.tensorflow.org/", tfVersion)
 			}
 			console.Debugf("Setting CUDA to version %s from Tensorflow version", tfCUDA)
 			c.Build.CUDA = tfCUDA
@@ -488,7 +488,7 @@ Compatible cuDNN version is: %s`, c.Build.CuDNN, tfVersion, tfCuDNN)
 		switch {
 		case c.Build.CUDA == "":
 			if len(torchCUDAs) == 0 {
-				return fmt.Errorf("Cog doesn't know what CUDA version is compatible with torch==%s. You might need to upgrade Cog: https://github.com/replicate/cog#upgrade\n\nIf that doesn't work, you need to set the 'cuda' option in cog.yaml to set what version to use. You might be able to find this out from https://pytorch.org/", torchVersion)
+				return fmt.Errorf("Cog doesn't know what CUDA version is compatible with torch==%s. You might need to upgrade Cog: https://github.com/startingapr21/rogue#upgrade\n\nIf that doesn't work, you need to set the 'cuda' option in cog.yaml to set what version to use. You might be able to find this out from https://pytorch.org/", torchVersion)
 			}
 			c.Build.CUDA = latestCUDAFrom(torchCUDAs)
 			console.Debugf("Setting CUDA to version %s from Torch version", c.Build.CUDA)

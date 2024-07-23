@@ -15,9 +15,9 @@ import (
 	"github.com/spf13/cobra"
 	"golang.org/x/term"
 
-	"github.com/replicate/cog/pkg/docker"
-	"github.com/replicate/cog/pkg/global"
-	"github.com/replicate/cog/pkg/util/console"
+	"github.com/startingapr21/rogue/pkg/docker"
+	"github.com/startingapr21/rogue/pkg/global"
+	"github.com/startingapr21/rogue/pkg/util/console"
 )
 
 type VerifyResponse struct {

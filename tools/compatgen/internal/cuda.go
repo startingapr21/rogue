@@ -8,11 +8,11 @@ import (
 
 	"github.com/anaskhan96/soup"
 
-	"github.com/replicate/cog/pkg/config"
+	"github.com/startingapr21/rogue/pkg/config"
 )
 
 func FetchCUDABaseImages() ([]config.CUDABaseImage, error) {
-	url := "https://hub.docker.com/v2/repositories/nvidia/cuda/tags/?page_size=1000&name=devel-ubuntu&ordering=last_updated"
+	url := "https://hub.docker.com/v2/repositories/rocm/pytorch/tags/?page_size=1000&ordering=last_updated"
 	tags, err := fetchCUDABaseImageTags(url)
 	if err != nil {
 		return nil, err

@@ -9,7 +9,7 @@ import (
 
 	"github.com/docker/docker/api/types"
 
-	"github.com/replicate/cog/pkg/util/console"
+	"github.com/startingapr21/rogue/pkg/util/console"
 )
 
 var ErrNoSuchImage = errors.New("No image returned")

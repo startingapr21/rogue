@@ -10,10 +10,10 @@ import (
 
 	"golang.org/x/exp/slices"
 
-	"github.com/replicate/cog/pkg/util"
-	"github.com/replicate/cog/pkg/util/console"
+	"github.com/startingapr21/rogue/pkg/util"
+	"github.com/startingapr21/rogue/pkg/util/console"
 
-	"github.com/replicate/cog/pkg/util/version"
+	"github.com/startingapr21/rogue/pkg/util/version"
 )
 
 // TODO(andreas): check tf/py versions. tf 1.5.0 didn't install on py 3.8

@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/replicate/cog/pkg/config"
-	"github.com/replicate/cog/pkg/docker"
-	"github.com/replicate/cog/pkg/global"
+	"github.com/startingapr21/rogue/pkg/config"
+	"github.com/startingapr21/rogue/pkg/docker"
+	"github.com/startingapr21/rogue/pkg/global"
 )
 
 func GetConfig(imageName string) (*config.Config, error) {

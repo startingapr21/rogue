@@ -14,7 +14,7 @@
   "go.formatTool": "goimports",
   "go.testOnSave": true,
   "gopls": {
-    "formatting.local": "github.com/replicate/cog"
+    "formatting.local": "github.com/startingapr21/rogue"
   },
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"

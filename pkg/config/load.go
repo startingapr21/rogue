@@ -6,9 +6,9 @@ import (
 	"path"
 	"path/filepath"
 
-	"github.com/replicate/cog/pkg/errors"
-	"github.com/replicate/cog/pkg/global"
-	"github.com/replicate/cog/pkg/util/files"
+	"github.com/startingapr21/rogue/pkg/errors"
+	"github.com/startingapr21/rogue/pkg/global"
+	"github.com/startingapr21/rogue/pkg/util/files"
 )
 
 const maxSearchDepth = 100

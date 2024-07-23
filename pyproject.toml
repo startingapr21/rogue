@@ -8,7 +8,7 @@ description = "Containers for machine learning"
 readme = "README.md"
 authors = [{ name = "Replicate", email = "team@replicate.com" }]
 license.file = "LICENSE"
-urls."Source" = "https://github.com/replicate/cog"
+urls."Source" = "https://github.com/startingapr21/rogue"
 
 requires-python = ">=3.7"
 dependencies = [

@@ -11,11 +11,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/replicate/cog/pkg/config"
-	"github.com/replicate/cog/pkg/util/console"
-	"github.com/replicate/cog/pkg/util/slices"
-	"github.com/replicate/cog/pkg/util/version"
-	"github.com/replicate/cog/pkg/weights"
+	"github.com/startingapr21/rogue/pkg/config"
+	"github.com/startingapr21/rogue/pkg/util/console"
+	"github.com/startingapr21/rogue/pkg/util/slices"
+	"github.com/startingapr21/rogue/pkg/util/version"
+	"github.com/startingapr21/rogue/pkg/weights"
 )
 
 //go:embed embed/cog.whl

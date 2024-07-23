@@ -8,8 +8,8 @@ import (
 
 	"github.com/mitchellh/go-homedir"
 
-	"github.com/replicate/cog/pkg/util/console"
-	"github.com/replicate/cog/pkg/util/files"
+	"github.com/startingapr21/rogue/pkg/util/console"
+	"github.com/startingapr21/rogue/pkg/util/files"
 )
 
 type state struct {

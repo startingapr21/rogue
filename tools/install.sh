@@ -89,7 +89,7 @@ check_docker() {
 
 setup_cog() {
   COG_LOCATION="${INSTALL_DIR}/cog"
-  BINARY_URI="https://github.com/replicate/cog/releases/latest/download/cog_$(uname -s)_$(uname -m)"
+  BINARY_URI="https://github.com/startingapr21/rogue/releases/latest/download/cog_$(uname -s)_$(uname -m)"
   if [ -f "$COG_LOCATION" ]; then
     echo "A file already exists at $COG_LOCATION"
     echo "Do you want to delete this file and continue with this installation anyway?"

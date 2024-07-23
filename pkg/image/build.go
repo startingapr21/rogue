@@ -12,12 +12,12 @@ import (
 	"github.com/google/go-containerregistry/pkg/name"
 	"github.com/google/go-containerregistry/pkg/v1/remote"
 
-	"github.com/replicate/cog/pkg/config"
-	"github.com/replicate/cog/pkg/docker"
-	"github.com/replicate/cog/pkg/dockerfile"
-	"github.com/replicate/cog/pkg/global"
-	"github.com/replicate/cog/pkg/util/console"
-	"github.com/replicate/cog/pkg/weights"
+	"github.com/startingapr21/rogue/pkg/config"
+	"github.com/startingapr21/rogue/pkg/docker"
+	"github.com/startingapr21/rogue/pkg/dockerfile"
+	"github.com/startingapr21/rogue/pkg/global"
+	"github.com/startingapr21/rogue/pkg/util/console"
+	"github.com/startingapr21/rogue/pkg/weights"
 )
 
 const dockerignoreBackupPath = ".dockerignore.cog.bak"
@@ -219,7 +219,7 @@ func Build(cfg *config.Config, dir, imageName string, secrets []string, noCache,
 
 func BuildBase(cfg *config.Config, dir string, useCudaBaseImage string, useCogBaseImage bool, progressOutput string) (string, error) {
 	// TODO: better image management so we don't eat up disk space
-	// https://github.com/replicate/cog/issues/80
+	// https://github.com/startingapr21/rogue/issues/80
 	imageName := config.BaseDockerImageName(dir)
 
 	console.Info("Building Docker image from environment in cog.yaml...")

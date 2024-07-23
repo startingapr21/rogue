@@ -1,4 +1,4 @@
-module github.com/replicate/cog
+module github.com/startingapr21/rogue
 
 go 1.21
 

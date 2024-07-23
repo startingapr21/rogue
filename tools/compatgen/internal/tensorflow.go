@@ -5,11 +5,11 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/replicate/cog/pkg/util/version"
+	"github.com/startingapr21/rogue/pkg/util/version"
 
 	"github.com/anaskhan96/soup"
 
-	"github.com/replicate/cog/pkg/config"
+	"github.com/startingapr21/rogue/pkg/config"
 )
 
 func FetchTensorFlowCompatibilityMatrix() ([]config.TFCompatibility, error) {

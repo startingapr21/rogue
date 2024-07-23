@@ -1,5 +1,5 @@
 site_name: Cog
-repo_url: https://github.com/replicate/cog
+repo_url: https://github.com/startingapr21/rogue
 docs_dir: docs/
 nav:
   - README: README.md
@@ -13,7 +13,7 @@ nav:
   - Private registry: private-package-registry.md
   - Notebooks: notebooks.md
   - Contributing: CONTRIBUTING.md
-  - License: https://github.com/replicate/cog/blob/main/LICENSE
+  - License: https://github.com/startingapr21/rogue/blob/main/LICENSE
 
 theme:
   name: material
@@ -66,7 +66,7 @@ extra:
   generator: false
   social:
     - icon: simple/github
-      link: https://github.com/replicate/cog
+      link: https://github.com/startingapr21/rogue
     - icon: simple/discord
       link: https://discord.gg/replicate
     - icon: simple/x

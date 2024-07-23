@@ -6,8 +6,8 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/replicate/cog/pkg/util/console"
-	"github.com/replicate/cog/tools/compatgen/internal"
+	"github.com/startingapr21/rogue/pkg/util/console"
+	"github.com/startingapr21/rogue/tools/compatgen/internal"
 )
 
 func main() {

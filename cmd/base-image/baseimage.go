@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/replicate/cog/pkg/cli"
-	"github.com/replicate/cog/pkg/util/console"
+	"github.com/startingapr21/rogue/pkg/cli"
+	"github.com/startingapr21/rogue/pkg/util/console"
 )
 
 func main() {

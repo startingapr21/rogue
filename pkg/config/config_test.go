@@ -511,7 +511,7 @@ func TestCUDABaseImageTag(t *testing.T) {
 
 	imageTag, err := config.CUDABaseImageTag()
 	require.NoError(t, err)
-	require.Equal(t, "nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04", imageTag)
+	require.Equal(t, "rocm/pytorch:rocm6.1.3_ubuntu22.04_py3.10_pytorch_release-2.1.2", imageTag)
 }
 
 func TestBuildRunItemStringYAML(t *testing.T) {

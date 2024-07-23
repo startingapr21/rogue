@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/replicate/cog/pkg/config"
-	"github.com/replicate/cog/pkg/util/version"
+	"github.com/startingapr21/rogue/pkg/config"
+	"github.com/startingapr21/rogue/pkg/util/version"
 )
 
 const BaseImageRegistry = "r8.im"

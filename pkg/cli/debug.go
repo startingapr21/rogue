@@ -5,10 +5,10 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/replicate/cog/pkg/config"
-	"github.com/replicate/cog/pkg/dockerfile"
-	"github.com/replicate/cog/pkg/global"
-	"github.com/replicate/cog/pkg/util/console"
+	"github.com/startingapr21/rogue/pkg/config"
+	"github.com/startingapr21/rogue/pkg/dockerfile"
+	"github.com/startingapr21/rogue/pkg/global"
+	"github.com/startingapr21/rogue/pkg/util/console"
 )
 
 var imageName string

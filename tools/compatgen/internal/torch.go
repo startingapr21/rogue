@@ -9,7 +9,7 @@ import (
 
 	"github.com/hashicorp/go-version"
 
-	"github.com/replicate/cog/pkg/config"
+	"github.com/startingapr21/rogue/pkg/config"
 )
 
 type torchPackage struct {

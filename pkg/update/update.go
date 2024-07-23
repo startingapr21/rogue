@@ -10,8 +10,8 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/replicate/cog/pkg/global"
-	"github.com/replicate/cog/pkg/util/console"
+	"github.com/startingapr21/rogue/pkg/global"
+	"github.com/startingapr21/rogue/pkg/util/console"
 )
 
 func isUpdateEnabled() bool {

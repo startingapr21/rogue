@@ -7,9 +7,9 @@ import (
 
 	"github.com/getkin/kin-openapi/openapi3"
 
-	"github.com/replicate/cog/pkg/docker"
-	"github.com/replicate/cog/pkg/global"
-	"github.com/replicate/cog/pkg/util/console"
+	"github.com/startingapr21/rogue/pkg/docker"
+	"github.com/startingapr21/rogue/pkg/global"
+	"github.com/startingapr21/rogue/pkg/util/console"
 )
 
 // GenerateOpenAPISchema by running the image and executing Cog

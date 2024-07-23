@@ -8,11 +8,11 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/replicate/cog/pkg/config"
-	"github.com/replicate/cog/pkg/docker"
-	"github.com/replicate/cog/pkg/image"
-	"github.com/replicate/cog/pkg/predict"
-	"github.com/replicate/cog/pkg/util/console"
+	"github.com/startingapr21/rogue/pkg/config"
+	"github.com/startingapr21/rogue/pkg/docker"
+	"github.com/startingapr21/rogue/pkg/image"
+	"github.com/startingapr21/rogue/pkg/predict"
+	"github.com/startingapr21/rogue/pkg/util/console"
 )
 
 var (

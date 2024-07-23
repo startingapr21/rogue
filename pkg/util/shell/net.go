@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/replicate/cog/pkg/util/console"
+	"github.com/startingapr21/rogue/pkg/util/console"
 )
 
 func WaitForPort(port int, timeout time.Duration) error {

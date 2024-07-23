@@ -7,10 +7,10 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/replicate/cog/pkg/config"
+	"github.com/startingapr21/rogue/pkg/config"
 
-	"github.com/replicate/cog/pkg/util"
-	"github.com/replicate/cog/pkg/util/console"
+	"github.com/startingapr21/rogue/pkg/util"
+	"github.com/startingapr21/rogue/pkg/util/console"
 )
 
 func Build(dir, dockerfile, imageName string, secrets []string, noCache bool, progressOutput string, epoch int64) error {
