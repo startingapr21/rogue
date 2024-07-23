@@ -78,14 +78,9 @@ type CUDABaseImage struct {
 	Ubuntu  string
 }
 
-// func (i *CUDABaseImage) ImageTag() string {
-// 	return "nvidia/cuda:" + i.Tag
-// }
 
 func (i *CUDABaseImage) ImageTag() string {
-
 	return "rocm/pytorch:rocm6.1.3_ubuntu22.04_py3.10_pytorch_release-2.1.2"
-	// return "nvidia/cuda:" + i.Tag
 }
 
 //go:generate go run ../../tools/compatgen/main.go cuda -o cuda_base_images.json
