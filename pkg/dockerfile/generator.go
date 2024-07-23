@@ -298,9 +298,6 @@ func (g *Generator) BaseImage() (string, error) {
 		return baseImage, nil
 	}
 
-	if g.Config.Build.GPU && g.useCudaBaseImage {
-		return g.Config.CUDABaseImageTag()
-	}
 	return "python:" + g.Config.Build.PythonVersion + "-slim", nil
 }
 
@@ -348,9 +345,6 @@ func (g *Generator) aptInstalls() (string, error) {
 }
 
 func (g *Generator) installPython() (string, error) {
-	if g.Config.Build.GPU && g.useCudaBaseImage && !g.useCogBaseImage {
-		return g.installPythonCUDA()
-	}
 	return "", nil
 }
 
@@ -358,32 +352,7 @@ func (g *Generator) installPythonCUDA() (string, error) {
 	// TODO: check that python version is valid
 
 	py := g.Config.Build.PythonVersion
-	return `ENV PATH="/root/.pyenv/shims:/root/.pyenv/bin:$PATH"
-RUN --mount=type=cache,target=/var/cache/apt,sharing=locked apt-get update -qq && apt-get install -qqy --no-install-recommends \
-	make \
-	build-essential \
-	libssl-dev \
-	zlib1g-dev \
-	libbz2-dev \
-	libreadline-dev \
-	libsqlite3-dev \
-	wget \
-	curl \
-	llvm \
-	libncurses5-dev \
-	libncursesw5-dev \
-	xz-utils \
-	tk-dev \
-	libffi-dev \
-	liblzma-dev \
-	git \
-	ca-certificates \
-	&& rm -rf /var/lib/apt/lists/*
-` + fmt.Sprintf(`RUN curl -s -S -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash && \
-	git clone https://github.com/momo-lab/pyenv-install-latest.git "$(pyenv root)"/plugins/pyenv-install-latest && \
-	pyenv install-latest "%s" && \
-	pyenv global $(pyenv install-latest --print "%s") && \
-	pip install "wheel<1"`, py, py), nil
+	return "", nil
 	// for sitePackagesLocation, kind of need to determine which specific version latest is (3.8 -> 3.8.17 or 3.8.18)
 	// install-latest essentially does pyenv install --list | grep $py | tail -1
 	// there are many bad options, but a symlink to $(pyenv prefix) is the least bad one
@@ -403,12 +372,7 @@ func (g *Generator) installCog() (string, error) {
 func (g *Generator) pipInstalls() (string, error) {
 	var err error
 	excludePackages := []string{}
-	if torchVersion, ok := g.Config.TorchVersion(); ok {
-		excludePackages = []string{"torch==" + torchVersion}
-	}
-	if torchvisionVersion, ok := g.Config.TorchvisionVersion(); ok {
-		excludePackages = append(excludePackages, "torchvision=="+torchvisionVersion)
-	}
+
 	g.pythonRequirementsContents, err = g.Config.PythonRequirementsForArch(g.GOOS, g.GOARCH, excludePackages)
 	if err != nil {
 		return "", err
@@ -477,17 +441,7 @@ func (g *Generator) copyPipPackagesFromInstallStage() string {
 	// return "COPY --from=deps --link /dep COPY --from=deps /src"
 	// ...except it's actually /root/.pyenv/versions/3.8.17/lib/python3.8/site-packages
 	py := g.Config.Build.PythonVersion
-	if g.Config.Build.GPU && (g.useCudaBaseImage || g.useCogBaseImage) {
-		// this requires buildkit!
-		// we should check for buildkit and otherwise revert to symlinks or copying into /src
-		// we mount to avoid copying, which avoids having two copies in this layer
-		return `
-RUN --mount=type=bind,from=deps,source=/dep,target=/dep \
-    cp -rf /dep/* $(pyenv prefix)/lib/python*/site-packages; \
-    cp -rf /dep/bin/* $(pyenv prefix)/bin; \
-    pyenv rehash
-`
-	}
+
 
 	return "COPY --from=deps --link /dep /usr/local/lib/python" + py + "/site-packages"
 }

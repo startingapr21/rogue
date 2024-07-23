@@ -227,7 +227,7 @@ COPY . /src`
 
 	requirements, err := os.ReadFile(path.Join(gen.tmpDir, "requirements.txt"))
 	require.NoError(t, err)
-	require.Equal(t, `--extra-index-url https://download.pytorch.org/whl/cu118
+	require.Equal(t, `--extra-index-url https://download.pytorch.org/whl/nightly/rocm6.1
 torch==2.0.1
 pandas==2.0.3`, string(requirements))
 }
@@ -382,7 +382,7 @@ COPY . /src`
 
 	requirements, err := os.ReadFile(path.Join(gen.tmpDir, "requirements.txt"))
 	require.NoError(t, err)
-	require.Equal(t, `--extra-index-url https://download.pytorch.org/whl/cu118
+	require.Equal(t, `--extra-index-url https://download.pytorch.org/whl/nightly/rocm6.1
 torch==2.0.1
 pandas==2.0.3`, string(requirements))
 
